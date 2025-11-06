@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Raízes Humanas — Ponto (OWNER)</title>
+<style>
+:root{
+  --bg:#0b1220;
+  --card:#141b2b;
+  --ring:rgba(255,255,255,.08);
+  --text:#e9eefc;
+  --muted:#aab3c5;
+  --green:#5f834a; --green-2:#7aa061;
+  --terra:#b78c45; --terra-2:#d0a560;
+  --danger:#ef4444;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 1200px at 10% 10%, rgba(95,131,74,.25), transparent 60%),
+    radial-gradient(1000px 800px at 90% 0%, rgba(183,140,69,.18), transparent 60%),
+    linear-gradient(180deg,#0a0f1c,#0b1220 30%);
+}
+.container{max-width:1160px;padding:24px 16px 96px;margin:0 auto;}
+.card{
+  background:rgba(20,27,43,.65);
+  border:1px solid var(--ring);
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.04);
+  backdrop-filter:blur(8px);
+  padding:22px;
+}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.col{flex:1 1 220px;min-width:220px}
+.col-md{flex:1 1 320px;min-width:320px}
+.full{flex:1 1 100%}
+label{display:block;font-size:12px;color:var(--muted);margin:0 0 6px 2px}
+select,input[type="text"],input[type="date"],input[type="time"],input[type="password"]{
+  width:100%;
+  color:var(--text);
+  background:#0e1524;
+  border:1px solid #14305b;
+  padding:10px 12px;
+  border-radius:10px;
+  outline:none;
+}
+input:focus,select:focus{border-color:var(--terra-2);box-shadow:0 0 0 3px rgba(183,140,69,.18)}
+h1{margin:0 0 18px;font-weight:800;letter-spacing:.4px;font-size:clamp(24px,4vw,32px);display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{height:56px;width:auto;object-fit:contain;filter:drop-shadow(0 6px 12px rgba(0,0,0,.35))}
+.badge{
+  font-size:12px;
+  color:#091222;
+  background:linear-gradient(180deg,var(--terra),var(--terra-2));
+  padding:6px 10px;
+  border-radius:999px;
+  font-weight:700;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),0 8px 20px rgba(183,140,69,.25);
+}
+.clock{font-variant-numeric:tabular-nums;font-weight:700;font-size:40px;letter-spacing:1px;text-shadow:0 6px 20px rgba(0,0,0,.35)}
+.kpi{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.pill{font-size:12px;color:#cfe0ff;border:1px solid var(--ring);border-radius:999px;padding:8px 12px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02))}
+.btn{
+  appearance:none;
+  border:none;
+  cursor:pointer;
+  color:#0b1422;
+  font-weight:800;
+  padding:12px 16px;
+  border-radius:14px;
+  background:linear-gradient(180deg,var(--green),var(--green-2));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 16px 30px rgba(95,131,74,.35),0 1px 0 rgba(255,255,255,.1);
+  transition:transform .08s ease,box-shadow .2s ease;
+}
+.btn:active{transform:translateY(1px)}
+.btn.warn{background:linear-gradient(180deg,var(--terra),var(--terra-2));box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 16px 30px rgba(183,140,69,.35)}
+.btn.ghost{color:var(--text);background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--ring);box-shadow:none}
+.btn.red{background:linear-gradient(180deg,#ef4444,#c0392b);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 16px 30px rgba(239,68,68,.35)}
+.table{width:100%;border-collapse:collapse;margin-top:14px;font-size:13px}
+.table th,.table td{padding:10px 12px;border-bottom:1px dashed rgba(255,255,255,.06);color:#dbe7ff}
+.table th{color:#b8c6e6;text-align:left;font-weight:700}
+.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);margin:18px 0}
+.hidden{display:none}
+.usage{
+  margin-top:18px;
+  background:rgba(11,18,32,.55);
+  border:1px dashed rgba(255,255,255,.12);
+  border-radius:14px;
+  padding:18px 20px;
+  line-height:1.6;
+  font-size:13px;
+}
+.usage strong{color:#fff}
+@media print{
+  .no-print{display:none !important}
+  body{background:#fff;color:#000}
+  .card{box-shadow:none;background:#fff;border:none}
+  .table th,.table td{color:#000;border-color:#ddd}
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="brand">
+      <img src="logo-raizes.jpg.png" alt="Raízes Humanas" onerror="this.outerHTML='<span class=\"badge\">Raízes Humanas</span>'"/>
+      <h1>Raízes Humanas — Ponto <span class="badge">OWNER</span></h1>
+      <div style="margin-left:auto" class="clock no-print" id="clock">--:--:--</div>
+    </div>
+
+    <div class="card">
+      <!-- Seleções principais -->
+      <div class="row">
+        <div class="col">
+          <label>Empresa (ativa)</label>
+          <select id="companySel"></select>
+        </div>
+        <div class="col">
+          <label>Colaborador</label>
+          <select id="employeeSel"></select>
+        </div>
+        <div class="col">
+          <label>PIN do colaborador</label>
+          <input id="empPin" type="password" inputmode="numeric" maxlength="4" placeholder="****"/>
+        </div>
+        <div class="col">
+          <label>Data</label>
+          <input id="dateSel" type="date"/>
+        </div>
+        <div class="col-md no-print">
+          <label>&nbsp;</label>
+          <div class="kpi">
+            <span class="pill" id="statusPill">Status: —</span>
+            <span class="pill" id="workedPill">Trabalhado: 00:00</span>
+            <span class="pill" id="breakPill">Intervalo: 00:00</span>
+            <span class="pill" id="deltaPill">Saldo diário: 00:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider no-print"></div>
+
+      <!-- Ações de marcação -->
+      <div class="row no-print">
+        <div class="col"><button class="btn" id="btnIn">Bater Entrada</button></div>
+        <div class="col"><button class="btn ghost" id="btnBreakStart">Início Descanso</button></div>
+        <div class="col"><button class="btn ghost" id="btnBreakEnd">Fim Descanso</button></div>
+        <div class="col"><button class="btn red" id="btnOut">Bater Saída</button></div>
+        <div class="col">
+          <label>Reconhecimento facial</label>
+          <div class="row">
+            <div class="col"><button class="btn warn" id="btnFace">Reconhecer agora</button></div>
+            <div class="col"><button class="btn ghost" id="btnManager">Entrar modo gestor</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra do gestor -->
+      <div class="row hidden no-print" id="gestorBar" style="margin-top:10px">
+        <div class="col"><button class="btn ghost" id="btnCompanies">Empresas</button></div>
+        <div class="col"><button class="btn ghost" id="btnEmployees">Colaboradores</button></div>
+        <div class="col"><button class="btn ghost" id="btnManual">Inserir manual</button></div>
+        <div class="col"><button class="btn ghost" id="btnClearDay">Limpar dia</button></div>
+        <div class="col"><button class="btn ghost" id="btnBackup">Backup</button></div>
+        <div class="col"><button class="btn ghost" id="btnRestore">Restauração</button></div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Período + Relatórios -->
+      <div class="row">
+        <div class="col">
+          <label>Período de apuração — Início</label>
+          <input type="date" id="fromDate"/>
+        </div>
+        <div class="col">
+          <label>Período de apuração — Fim</label>
+          <input type="date" id="toDate"/>
+        </div>
+        <div class="col no-print">
+          <label>&nbsp;</label>
+          <div class="row">
+            <div class="col"><button class="btn" id="btnReport">Gerar espelho</button></div>
+            <div class="col"><button class="btn ghost" id="btnCSV">Exportar CSV (Simples)</button></div>
+            <div class="col"><button class="btn ghost" id="btnCSVFolha">Exportar CSV (Folha)</button></div>
+            <div class="col"><button class="btn ghost" id="btnPDF">Imprimir / Salvar PDF</button></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabela do dia -->
+      <table class="table" id="tbl">
+        <thead>
+          <tr>
+            <th>Horário</th><th>Tipo</th><th>Latitude</th><th>Longitude</th><th>Origem</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+
+      <div class="divider"></div>
+      <div class="pill">Dica: os dados ficam <strong>no seu navegador</strong> (sem login). Use <strong>Backup</strong> antes de atualizar o arquivo para não perder o histórico.</div>
+    </div>
+
+    <div class="usage no-print">
+      <strong>Como usar rapidamente</strong>
+      <ol>
+        <li>Coloque este HTML e o arquivo <code>logo-raizes.jpg.png</code> na mesma pasta.</li>
+        <li>Abra o arquivo no Chrome ou Edge.</li>
+        <li>Selecione a empresa e o colaborador desejados.</li>
+        <li>Informe o PIN do colaborador (obrigatório para bater ponto) e registre Entrada, Descanso ou Saída.</li>
+        <li>Para recursos de gestão, clique em <em>Entrar modo gestor</em> e use o PIN <code>2468</code> (libera Empresas, Colaboradores, Inserção manual e Limpar dia).</li>
+        <li>Para relatórios, defina o período e utilize <em>Gerar espelho</em>, <em>Exportar CSV</em>, <em>Exportar CSV (Folha)</em> ou <em>Imprimir / Salvar PDF</em>.</li>
+      </ol>
+    </div>
+  </div>
+
+<script>
+const $ = id => document.getElementById(id);
+const fmt2 = n => (n < 10 ? '0' : '') + n;
+const todayISO = () => new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+const hhmm = m => `${fmt2(Math.floor(m / 60))}:${fmt2(Math.abs(m % 60))}`;
+const parseHHMM = s => {
+  const [h, m] = s.split(':').map(Number);
+  return h * 60 + m;
+};
+const uuid = () => (crypto.randomUUID ? crypto.randomUUID() : 'id-' + Math.random().toString(16).slice(2, 10));
+
+setInterval(() => {
+  const clock = $('clock');
+  if (clock) clock.textContent = new Date().toLocaleTimeString();
+}, 500);
+
+const DBKEY = 'rh.db.owner.v1';
+function loadDB() {
+  try {
+    const raw = localStorage.getItem(DBKEY);
+    return raw ? JSON.parse(raw) : seed();
+  } catch (err) {
+    console.warn('Falha ao carregar, recriando base:', err);
+    return seed();
+  }
+}
+function saveDB(db) {
+  localStorage.setItem(DBKEY, JSON.stringify(db));
+}
+
+function seed() {
+  const db = {
+    meta: { ownerPin: '2468', dailyTargetMin: 7 * 60 + 20 },
+    companies: [{ id: 'blessed', name: 'Blessed', pin: '0158' }],
+    employees: [{
+      id: 'bernardo',
+      name: 'Bernardo Ferreira Silva',
+      cpf: '22631314778',
+      company: 'blessed',
+      hired: '2024-10-18',
+      fired: null,
+      pin: '2263'
+    }],
+    events: []
+  };
+
+  const events = [
+    ['2025-10-01', '08:00', '12:00', '13:30', '18:00'],
+    ['2025-10-02', '08:03', '12:00', '13:30', '17:03'],
+    ['2025-10-03', '08:01', '12:00', '13:30', '17:01'],
+    ['2025-10-04', '08:01', '12:00', '13:30', '17:01'],
+    ['2025-10-06', '08:00', '12:00', '13:30', '16:40'],
+    ['2025-10-07', '08:00', '12:00', '13:30', '18:00'],
+    ['2025-10-08', '08:00', '12:00', '13:30', '18:29'],
+    ['2025-10-09', '08:00', '12:00', '13:30', '17:31'],
+    ['2025-10-10', '08:01', '12:00', '13:30', '17:00'],
+    ['2025-10-11', '08:01', '12:00', '13:30', '16:59'],
+    ['2025-10-13', '08:04', '12:00', '13:30', '16:44'],
+    ['2025-10-14', '08:02', '12:00', '13:30', '17:12'],
+    ['2025-10-15', '08:03', '12:00', '13:30', '18:33'],
+    ['2025-10-16', '08:01', '12:00', '13:30', '17:31'],
+    ['2025-10-17', '08:05', '12:00', '13:30', '17:15'],
+    ['2025-10-18', '08:00', '12:00', '13:30', '18:10'],
+    ['2025-10-21', '08:00', '12:00', '13:30', '17:59'],
+    ['2025-10-22', '08:01', '12:00', '13:30', '18:31'],
+    ['2025-10-23', '08:00', '12:00', '13:30', '18:00'],
+    ['2025-10-24', '08:00', '12:00', '13:30', '18:00'],
+    ['2025-10-25', '08:02', '12:00', '13:30', '18:12'],
+    ['2025-10-27', '08:01', '12:00', '13:30', '16:40'],
+    ['2025-10-28', '08:03', '12:00', '13:30', '16:43'],
+    ['2025-10-29', '08:01', '12:00', '13:30', '18:31'],
+    ['2025-10-30', '08:01', '12:00', '13:30', '17:31'],
+    ['2025-10-31', '08:02', '12:00', '13:30', '17:32']
+  ];
+
+  for (const [date, entrada, breakStart, breakEnd, saida] of events) {
+    db.events.push({ id: uuid(), company: 'blessed', employee: 'bernardo', date, time: entrada, kind: 'in', src: 'SEED' });
+    db.events.push({ id: uuid(), company: 'blessed', employee: 'bernardo', date, time: breakStart, kind: 'break_start', src: 'SEED' });
+    db.events.push({ id: uuid(), company: 'blessed', employee: 'bernardo', date, time: breakEnd, kind: 'break_end', src: 'SEED' });
+    db.events.push({ id: uuid(), company: 'blessed', employee: 'bernardo', date, time: saida, kind: 'out', src: 'SEED' });
+  }
+
+  saveDB(db);
+  return db;
+}
+
+let DB = loadDB();
+
+const companySel = $('companySel');
+const employeeSel = $('employeeSel');
+const dateSel = $('dateSel');
+const empPin = $('empPin');
+const tbody = $('tbody');
+const statusPill = $('statusPill');
+const workedPill = $('workedPill');
+const breakPill = $('breakPill');
+const deltaPill = $('deltaPill');
+
+function listCompanies() {
+  companySel.innerHTML = '';
+  DB.companies.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c.id;
+    opt.textContent = c.name;
+    companySel.appendChild(opt);
+  });
+}
+
+function listEmployees() {
+  const comp = companySel.value;
+  employeeSel.innerHTML = '';
+  DB.employees
+    .filter(e => e.company === comp && !e.fired)
+    .forEach(e => {
+      const opt = document.createElement('option');
+      opt.value = e.id;
+      opt.textContent = e.name;
+      employeeSel.appendChild(opt);
+    });
+}
+
+function labelKind(kind) {
+  return kind === 'in'
+    ? 'Entrada'
+    : kind === 'break_start'
+    ? 'Início Descanso'
+    : kind === 'break_end'
+    ? 'Fim Descanso'
+    : kind === 'out'
+    ? 'Saída'
+    : kind;
+}
+
+function eventsOfDay(comp, emp, day) {
+  return DB.events
+    .filter(e => e.company === comp && e.employee === emp && e.date === day)
+    .sort((a, b) => (a.time).localeCompare(b.time));
+}
+
+function computeWorked(rows) {
+  let worked = 0;
+  let pause = 0;
+  let inTime = null;
+  let breakStart = null;
+
+  rows.forEach(r => {
+    const minutes = parseHHMM(r.time);
+    if (r.kind === 'in') inTime = minutes;
+    if (r.kind === 'out' && inTime != null) {
+      worked += Math.max(0, minutes - inTime);
+      inTime = null;
+    }
+    if (r.kind === 'break_start') breakStart = minutes;
+    if (r.kind === 'break_end' && breakStart != null) {
+      pause += Math.max(0, minutes - breakStart);
+      breakStart = null;
+    }
+  });
+
+  return { worked, pause };
+}
+
+function paintDay() {
+  const comp = companySel.value;
+  const emp = employeeSel.value;
+  const day = dateSel.value;
+  const rows = eventsOfDay(comp, emp, day);
+
+  tbody.innerHTML = '';
+  rows.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${r.time}</td><td>${labelKind(r.kind)}</td><td>${r.lat ?? '—'}</td><td>${r.lng ?? '—'}</td><td>${r.src || ''}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  const mins = computeWorked(rows);
+  workedPill.textContent = `Trabalhado: ${hhmm(mins.worked)}`;
+  breakPill.textContent = `Intervalo: ${hhmm(mins.pause)}`;
+  const target = DB.meta.dailyTargetMin ?? 7 * 60 + 20;
+  const delta = mins.worked - target;
+  const sign = delta >= 0 ? '+' : '-';
+  deltaPill.textContent = `Saldo diário: ${sign}${hhmm(Math.abs(delta))}`;
+  statusPill.textContent = 'Status: ' + (rows.length ? labelKind(rows[rows.length - 1].kind) : '—');
+}
+
+let isManager = false;
+let faceOK = false;
+
+function requireAuthForPunch() {
+  if (isManager || faceOK) return true;
+  const emp = DB.employees.find(e => e.id === employeeSel.value);
+  const pin = (empPin.value || '').trim();
+  if (!emp) {
+    alert('Selecione um colaborador.');
+    return false;
+  }
+  if (pin !== String(emp.pin ?? '')) {
+    alert('PIN do colaborador inválido.');
+    return false;
+  }
+  return true;
+}
+
+function addEvent(kind, src = 'WEB', lat = null, lng = null) {
+  if (!requireAuthForPunch()) return;
+  const comp = companySel.value;
+  const emp = employeeSel.value;
+  const day = dateSel.value;
+  if (!comp || !emp || !day) {
+    alert('Selecione empresa, colaborador e data.');
+    return;
+  }
+  const time = new Date().toTimeString().slice(0, 5);
+  DB.events.push({ id: uuid(), company: comp, employee: emp, date: day, time, kind, lat, lng, src });
+  saveDB(DB);
+  paintDay();
+}
+
+$('btnManager').onclick = () => {
+  const pin = prompt('PIN da diretoria:');
+  if (pin === String(DB.meta.ownerPin)) {
+    isManager = true;
+    $('gestorBar').classList.remove('hidden');
+    alert('Modo gestor ativado.');
+  } else {
+    alert('PIN inválido.');
+  }
+};
+
+$('btnFace').onclick = () => {
+  faceOK = true;
+  alert('Reconhecimento facial (simulado) liberado por 5 minutos.');
+  setTimeout(() => {
+    faceOK = false;
+  }, 5 * 60 * 1000);
+};
+
+$('btnCompanies').onclick = () => {
+  if (!isManager) return alert('Recurso exclusivo do gestor.');
+  const name = prompt('Nome da nova empresa:');
+  if (!name) return;
+  const id = name.toLowerCase().replace(/\s+/g, '_');
+  const pin = prompt('PIN do gestor (4 dígitos):', '0000') || '0000';
+  DB.companies.push({ id, name, pin });
+  saveDB(DB);
+  listCompanies();
+  companySel.value = id;
+  listEmployees();
+  paintDay();
+};
+
+$('btnEmployees').onclick = () => {
+  if (!isManager) return alert('Recurso exclusivo do gestor.');
+  const name = prompt('Nome do colaborador:');
+  if (!name) return;
+  const cpf = prompt('CPF (somente números):') || '';
+  const pin = prompt('PIN (4 dígitos):', '0000') || '0000';
+  const id = (name + cpf).toLowerCase().replace(/\W+/g, '');
+  DB.employees.push({ id, name, cpf, company: companySel.value, hired: todayISO(), fired: null, pin, external: false });
+  saveDB(DB);
+  listEmployees();
+  employeeSel.value = id;
+  paintDay();
+};
+
+$('btnManual').onclick = () => {
+  if (!isManager) return alert('Recurso exclusivo do gestor.');
+  const time = prompt('Hora (HH:MM):', '10:00');
+  if (!time) return;
+  const kind = prompt('Tipo (in,break_start,break_end,out):', 'in');
+  if (!kind) return;
+  const date = prompt('Data (YYYY-MM-DD):', dateSel.value) || dateSel.value;
+  const comp = companySel.value;
+  const emp = employeeSel.value;
+  DB.events.push({ id: uuid(), company: comp, employee: emp, date, time, kind, src: 'MANUAL' });
+  saveDB(DB);
+  if (date === dateSel.value) paintDay();
+};
+
+$('btnClearDay').onclick = () => {
+  if (!isManager) return alert('Recurso exclusivo do gestor.');
+  if (!confirm('Limpar todas as marcações do dia selecionado?')) return;
+  const comp = companySel.value;
+  const emp = employeeSel.value;
+  const day = dateSel.value;
+  DB.events = DB.events.filter(e => !(e.company === comp && e.employee === emp && e.date === day));
+  saveDB(DB);
+  paintDay();
+};
+
+$('btnBackup').onclick = () => {
+  const blob = new Blob([JSON.stringify(DB, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'rh-backup.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+};
+
+$('btnRestore').onclick = () => {
+  const file = document.createElement('input');
+  file.type = 'file';
+  file.accept = '.json,application/json';
+  file.onchange = async e => {
+    try {
+      const text = await e.target.files[0].text();
+      DB = JSON.parse(text);
+      saveDB(DB);
+      alert('Restauração concluída. Recarregando…');
+      location.reload();
+    } catch (err) {
+      alert('Arquivo inválido.');
+      console.error(err);
+    }
+  };
+  file.click();
+};
+
+$('btnIn').onclick = () => addEvent('in');
+$('btnBreakStart').onclick = () => addEvent('break_start');
+$('btnBreakEnd').onclick = () => addEvent('break_end');
+$('btnOut').onclick = () => addEvent('out');
+
+function between(date, from, to) {
+  return (!from || date >= from) && (!to || date <= to);
+}
+
+function nameOf(empId) {
+  return DB.employees.find(e => e.id === empId)?.name || empId;
+}
+
+function companyName(compId) {
+  return DB.companies.find(c => c.id === compId)?.name || compId;
+}
+
+function csvCell(value) {
+  return `"${String(value ?? '').replaceAll('"', '""')}"`;
+}
+
+function downloadText(filename, text) {
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+$('btnReport').onclick = () => {
+  const comp = companySel.value;
+  const emp = employeeSel.value;
+  const from = $('fromDate').value;
+  const to = $('toDate').value;
+  const lines = DB.events
+    .filter(e => e.company === comp && e.employee === emp && between(e.date, from, to))
+    .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time))
+    .map(e => `${e.date} ${e.time} — ${labelKind(e.kind)} (${e.src || 'WEB'})`);
+
+  const popup = window.open('', 'espelho', 'width=780,height=640');
+  popup.document.write(`<pre style="font:14px/1.5 monospace">Espelho – ${nameOf(emp)}\nEmpresa: ${companyName(comp)}\nPeríodo: ${from || '—'} a ${to || '—'}\n\n${lines.join('\n') || '(sem registros)'}\n</pre>`);
+  popup.document.close();
+};
+
+$('btnCSV').onclick = () => {
+  const comp = companySel.value;
+  const emp = employeeSel.value;
+  const from = $('fromDate').value;
+  const to = $('toDate').value;
+  const rows = DB.events
+    .filter(e => e.company === comp && e.employee === emp && between(e.date, from, to))
+    .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+
+  const header = 'employee,company,date,time,type,lat,lng,source\n';
+  const body = rows
+    .map(e => [
+      csvCell(nameOf(emp)),
+      csvCell(companyName(comp)),
+      e.date,
+      e.time,
+      e.kind,
+      e.lat ?? '',
+      e.lng ?? '',
+      e.src || 'WEB'
+    ].join(','))
+    .join('\n');
+
+  downloadText(`ponto_simples_${nameOf(emp).toLowerCase().replace(/\s+/g, '_')}_${(from || 'ini')}-${(to || 'fim')}.csv`, header + body + '\n');
+};
+
+$('btnCSVFolha').onclick = () => {
+  const comp = companySel.value;
+  const emp = employeeSel.value;
+  const from = $('fromDate').value;
+  const to = $('toDate').value;
+  const events = DB.events
+    .filter(e => e.company === comp && e.employee === emp && between(e.date, from, to))
+    .sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+
+  const byDay = {};
+  events.forEach(ev => {
+    (byDay[ev.date] ||= []).push(ev);
+  });
+
+  const weekdays = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+  const targetDaily = DB.meta.dailyTargetMin ?? 7 * 60 + 20;
+
+  const weekStart = date => {
+    const dt = new Date(date + 'T00:00');
+    const diff = (dt.getDay() + 6) % 7;
+    dt.setDate(dt.getDate() - diff);
+    return dt.toISOString().slice(0, 10);
+  };
+
+  const linesDaily = Object.keys(byDay).sort().map(date => {
+    const result = computeWorked(byDay[date]);
+    const worked = result.worked;
+    const pause = result.pause;
+    const delta = worked - targetDaily;
+    const sign = delta >= 0 ? '+' : '-';
+    const weekday = weekdays[new Date(date + 'T00:00').getDay()];
+    return [
+      csvCell(nameOf(emp)),
+      date,
+      worked ? '' : 'FOLGA',
+      weekday,
+      weekStart(date),
+      worked,
+      hhmm(worked),
+      pause,
+      hhmm(pause),
+      targetDaily,
+      delta,
+      `${sign}${hhmm(Math.abs(delta))}`
+    ].join(',');
+  });
+
+  const byWeek = {};
+  Object.keys(byDay).forEach(date => {
+    const ws = weekStart(date);
+    (byWeek[ws] ||= []).push(date);
+  });
+
+  const weeklyTarget = 44 * 60;
+  const linesWeekly = Object.keys(byWeek).sort().map(ws => {
+    const worked = byWeek[ws].reduce((total, date) => total + computeWorked(byDay[date]).worked, 0);
+    const delta = worked - weeklyTarget;
+    const sign = delta >= 0 ? '+' : '-';
+    return [
+      csvCell(nameOf(emp)),
+      ws,
+      worked,
+      hhmm(worked),
+      weeklyTarget,
+      delta,
+      `${sign}${hhmm(Math.abs(delta))}`
+    ].join(',');
+  });
+
+  const headerDaily = 'employee,date,day_note,weekday,week_start,worked_min,worked_hhmm,break_min,break_hhmm,daily_target_min,daily_delta_min,daily_delta_hhmm\n';
+  const headerWeekly = 'employee,week_start,worked_week_min,worked_week_hhmm,weekly_target_min,weekly_delta_min,weekly_delta_hhmm\n';
+  const csv = [
+    headerDaily + linesDaily.join('\n'),
+    '',
+    'Resumo semanal',
+    headerWeekly + linesWeekly.join('\n')
+  ].join('\n');
+
+  downloadText(`ponto_folha_${nameOf(emp).toLowerCase().replace(/\s+/g, '_')}_${(from || 'ini')}-${(to || 'fim')}.csv`, csv + '\n');
+};
+
+$('btnPDF').onclick = () => {
+  window.print();
+};
+
+function init() {
+  if ($('clock')) $('clock').textContent = '--:--:--';
+  dateSel.value = todayISO();
+  $('fromDate').value = dateSel.value.slice(0, 8) + '01';
+  $('toDate').value = dateSel.value;
+
+  listCompanies();
+  if (companySel.options.length) companySel.selectedIndex = 0;
+  listEmployees();
+  if (employeeSel.options.length) employeeSel.selectedIndex = 0;
+
+  companySel.onchange = () => {
+    listEmployees();
+    paintDay();
+  };
+  employeeSel.onchange = paintDay;
+  dateSel.onchange = paintDay;
+
+  paintDay();
+}
+
+init();
+</script>
+</body>
+</html>
